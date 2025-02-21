@@ -1,0 +1,259 @@
+{
+	"info": {
+		"_postman_id": "689305e5-3b81-40b1-a27f-d81d87a8a123",
+		"name": "Inditex",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3907182"
+	},
+	"item": [
+		{
+			"name": "filters",
+			"item": [
+				{
+					"name": "filter 2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8081/api/mgmt/1/assets/?uploadDateStart=2025-01-01T00:00:00Z&uploadDateEnd=2025-12-31T23:59:59Z",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"mgmt",
+								"1",
+								"assets",
+								""
+							],
+							"query": [
+								{
+									"key": "uploadDateStart",
+									"value": "2025-01-01T00:00:00Z"
+								},
+								{
+									"key": "uploadDateEnd",
+									"value": "2025-12-31T23:59:59Z"
+								}
+							]
+						},
+						"description": "Generated from cURL: curl -X GET \"http://localhost:8081/api/mgmt/1/assets/?uploadDateStart=2025-01-01T00:00:00Z&uploadDateEnd=2025-12-31T23:59:59Z\" \\\n     -H \"Accept: application/json\"\n"
+					},
+					"response": []
+				},
+				{
+					"name": "filter filename",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8081/api/mgmt/1/assets/?filename=upload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"mgmt",
+								"1",
+								"assets",
+								""
+							],
+							"query": [
+								{
+									"key": "filename",
+									"value": "upload"
+								}
+							]
+						},
+						"description": "Generated from cURL: curl -X GET \"http://localhost:8081/api/mgmt/1/assets/?filename=img\" \\\n     -H \"Accept: application/json\"\n"
+					},
+					"response": []
+				},
+				{
+					"name": "filter asc",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8081/api/mgmt/1/assets/?uploadDateStart=2025-01-01T00:00:00Z&uploadDateEnd=2025-12-31T23:59:59Z&filename=img&filetype=image/png&sortDirection=ASC",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"mgmt",
+								"1",
+								"assets",
+								""
+							],
+							"query": [
+								{
+									"key": "uploadDateStart",
+									"value": "2025-01-01T00:00:00Z"
+								},
+								{
+									"key": "uploadDateEnd",
+									"value": "2025-12-31T23:59:59Z"
+								},
+								{
+									"key": "filename",
+									"value": "img"
+								},
+								{
+									"key": "filetype",
+									"value": "image/png"
+								},
+								{
+									"key": "sortDirection",
+									"value": "ASC"
+								}
+							]
+						},
+						"description": "Generated from cURL: curl -X GET \"http://localhost:8081/api/mgmt/1/assets/?uploadDateStart=2025-01-01T00:00:00Z&uploadDateEnd=2025-12-31T23:59:59Z&filename=img&filetype=image/png&sortDirection=ASC\" \\\n     -H \"Accept: application/json\"\n"
+					},
+					"response": []
+				},
+				{
+					"name": "inesistente",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8081/api/mgmt/1/assets/?filetype=image/png",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"mgmt",
+								"1",
+								"assets",
+								""
+							],
+							"query": [
+								{
+									"key": "filetype",
+									"value": "image/png"
+								}
+							]
+						},
+						"description": "Generated from cURL: curl -X GET \"http://localhost:8081/api/mgmt/1/assets/?filetype=image/png\" \\\n     -H \"Accept: application/json\"\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\": \"user\", \"password\": \"password\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"auth",
+								"login"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST \"http://localhost:8081/auth/login\" \\\n     -H \"Content-Type: application/json\" \\\n     -d '{\"username\": \"user\", \"password\": \"password\"}'\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "upload",
+			"item": [
+				{
+					"name": "upload",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"filename\": \"upload.png\",\n  \"encodedFile\": \"SGVsbG8sIFdvcmxkIQ==\",\n  \"contentType\": \"image/png\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/mgmt/1/assets/actions/upload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"mgmt",
+								"1",
+								"assets",
+								"actions",
+								"upload"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST \"http://localhost:8081/api/mgmt/1/assets/actions/upload\" \\\n     -H \"Content-Type: application/json\" \\\n     -d '{\n           \"filename\": \"img.png\",\n           \"encodedFile\": \"iVBORw0KGgoAAAANSUhEUgAA...\", \n           \"contentType\": \"image/png\"\n         }'\n"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
