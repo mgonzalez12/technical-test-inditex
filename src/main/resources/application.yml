@@ -1,0 +1,56 @@
+spring:
+  kafka:
+    consumer:
+      auto-offset-reset: earliest
+      bootstrap-servers: localhost:9092
+      group-id: stock-events-listener-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      properties:
+        acks: all
+        retries: 10
+    admin:
+      properties:
+        bootstrap-servers: localhost:9092
+
+  datasource:
+    url: jdbc:postgresql://localhost:5434/assetdb
+    username: user
+    password: password
+
+  jpa:
+    database: POSTGRESQL
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:db/V1__create_asset_table.sql
+
+server:
+  port: 8081
+
+resilience4j:
+  retry:
+    instances:
+      assetSearch:
+        max-attempts: 3
+        wait-duration: 500ms
+
+logging:
+  level:
+    root: INFO
+    org.springframework.kafka: DEBUG
+    org.apache.kafka: DEBUG
+
+# Propiedad personalizada para definir los endpoints públicos
+app:
+  public-endpoints:
+    - /auth/**
+
